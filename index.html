@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>奇美醫院｜績效AI管理系統</title>
+  <style>
+    :root {
+      --bg: #fdfbf7;
+      --card: #ffffff;
+      --primary: #c27a62;
+      --primary-hover: #a35d46;
+      --border: #ebe3dc;
+      --text-main: #5c433a;
+      --text-light: #8b736a;
+      --soft: #f3e8e0;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .month-switcher {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg);
+      padding: 6px 14px;
+      font-size: 14px;
+    }
+
+    .month-switcher button {
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .month-switcher button:hover { background: #e8cdbf; }
+
+    .user {
+      text-align: right;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .user strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    main { padding: 28px 0 56px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+    }
+
+    .login {
+      max-width: 430px;
+      margin: 36px auto 0;
+      padding: 28px;
+    }
+
+    .login h1 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+    }
+
+    .login p {
+      margin-top: 0;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin: 14px 0 6px;
+    }
+
+    input, select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 14px;
+      background: #fff;
+      color: var(--text-main);
+    }
+
+    .btn {
+      margin-top: 18px;
+      width: 100%;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: var(--primary-hover); }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .panel { padding: 18px; }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .panel p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 780px) {
+      .dashboard { grid-template-columns: 1fr; }
+      .user { width: 100%; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">奇美醫院｜績效AI管理系統</div>
+      <div class="month-switcher" aria-label="月份切換">
+        <button type="button" aria-label="上一月">◀</button>
+        <strong>114 年 12 月</strong>
+        <button type="button" aria-label="下一月">▶</button>
+      </div>
+      <div class="user">
+        <strong>黃琪雅</strong>
+        主治醫師
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card login" aria-labelledby="login-title">
+      <h1 id="login-title">系統登入</h1>
+      <p>此版本已改為標準 HTML 結構，保留原畫面的核心欄位與版型。</p>
+
+      <form>
+        <label for="account">帳號</label>
+        <input id="account" name="account" type="text" placeholder="請輸入員編" />
+
+        <label for="role">角色</label>
+        <select id="role" name="role">
+          <option>主治醫師</option>
+          <option>醫務秘書</option>
+          <option>科主任</option>
+        </select>
+
+        <button class="btn" type="submit">登入系統</button>
+      </form>
+    </section>
+
+    <section class="dashboard" aria-label="系統模組總覽">
+      <article class="card panel">
+        <h2>個人績效上傳</h2>
+        <p>上傳門診、值班與教學等績效資料，作為月底結算依據。</p>
+        <span class="tag">醫師</span>
+      </article>
+      <article class="card panel">
+        <h2>科別彙整管理</h2>
+        <p>查看全科醫師當月預估積分與差異，並執行資料校對。</p>
+        <span class="tag">秘書</span>
+      </article>
+      <article class="card panel">
+        <h2>年度趨勢分析</h2>
+        <p>追蹤個人與科內績效趨勢，輔助決策與資源分配。</p>
+        <span class="tag">主任</span>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
